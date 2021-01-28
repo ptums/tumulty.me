@@ -1,4 +1,5 @@
 studio/node_modules/*
+sudio/dist
 web/node_modules/*
 web/.env
 web/.next
