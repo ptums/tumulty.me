@@ -40,16 +40,14 @@ export async function getAllPostsWithSlug() {
 
 export async function getAllPostsForHome() {
   const results = await client.fetch(`*[_type == "post"]{
-    title,
+     title,
     'description': description,
     'image':mainImage.asset._ref,
     'date':publishedAt,
     'slug': slug.current
     }`)
 
-  console.log(results)
-
-  return results
+  return getUniquePosts(results)
 }
 
 export async function getPostAndMorePosts(slug) {

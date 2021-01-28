@@ -6,7 +6,6 @@ import DarkModeToggle from 'components/dark-mode-toggle'
 const Header = () => {
   const router = useRouter()
   const isPost = router.asPath.includes('post')
-  console.log(isPost)
 
   return (
     <header>

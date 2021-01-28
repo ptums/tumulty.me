@@ -9,9 +9,6 @@ export default function Post({ post }) {
     return <ErrorPage statusCode={404} />
   }
 
-  console.log(post)
-
-  console.log(post)
   return (
     <div>
       <h1>{post.title}</h1>
@@ -32,14 +29,11 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug()
+  const allPosts = await getAllPostsWithSlug();
+  console.log('allPosts');
+  console.log(allPosts);
   return {
-    paths:
-      allPosts?.map((post) => ({
-        params: {
-          slug: post.slug,
-        },
-      })) || [],
+    paths: allPosts.map((post) => `/post/${post.slug}`) || [],
     fallback: true,
   }
 }
