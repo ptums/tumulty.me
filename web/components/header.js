@@ -1,14 +1,19 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import DarkModeToggle from 'components/dark-mode-toggle';
 
 const Header = () => (
   <header>
     <div className="title">
     <div>
-      <h1>
+      <Link href="/">
+        <a className="header-link">
+        <h1>
         <strong>Personal Blog</strong>
       </h1>
       <h2>On coding and "how the web works"</h2>
+        </a>
+      </Link>
     </div>
     <DarkModeToggle />
     </div>
@@ -46,6 +51,15 @@ const Header = () => (
         font-weight: normal;
         font-size: 1rem;
         margin-top:10px;
+      }
+
+      .header-link {
+        color: black;
+        text-decoration: none;
+      }
+
+      .header-link:hover {
+        text-decoration: underline;
       }
 
       .title {
