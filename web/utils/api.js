@@ -51,31 +51,16 @@ export async function getAllPostsForHome() {
 }
 
 export async function getPostAndMorePosts(slug) {
-  const [post, morePosts] = await Promise.all([
-    client
-      .fetch(
-        `*[_type == "post" && slug.current == $slug] | order(_updatedAt desc) {
-          title,
-          'description': description,
-          'image':mainImage.asset._ref,
-          'date':publishedAt,
-          'slug': slug.current,
-          'body': body,
-        }`,
-        { slug }
-      )
-      .then((res) => res?.[0]),
-    client.fetch(
-      `*[_type == "post" && slug.current != $slug] | order(date desc, _updatedAt desc){
-        title,
-        'description': description,
-        'image':mainImage.asset._ref,
-        'date':publishedAt,
-        'slug': slug.current,
-        'body': body,
-      }[0...2]`,
-      { slug }
-    ),
-  ])
-  return { post, morePosts: getUniquePosts(morePosts) }
+  const data = await client.fetch(
+    `*[_type == "post" && slug.current == $slug] | order(date desc){
+      title,
+      'description': description,
+      'image':mainImage.asset._ref,
+      'date':publishedAt,          
+      'body': body,
+      'slug': slug.current
+    }`,
+    { slug }
+  )
+  return data[0]
 }
