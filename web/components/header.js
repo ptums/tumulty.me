@@ -14,7 +14,7 @@ const Header = () => (
     </div>
     <hr />
     <div className="me">
-      {/* <Image src="/me.png" wclassNameth="100" height="116" alt="Peter F. Tumulty" /> */}
+      <Image src="/me.png" width="100" height="116" alt="Peter F. Tumulty" />
       <div className="details">
           <h3>
             <strong>That's me</strong>
