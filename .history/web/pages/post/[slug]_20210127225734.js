@@ -14,9 +14,8 @@ export default function Post({ post }) {
   console.log(post)
   return (
     <div>
-      <h1>{post.title}</h1>
-      <h2>{post.description}</h2>
-      <BlockContent blocks={post.body} />
+      <h3>{post.title}</h3>
+      <BlockContent blocks={content} className={markdownStyles.markdown} />
     </div>
   )
 }

@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
-import BlockContent from '@sanity/block-content-to-react'
-import { getAllPostsWithSlug, getPostAndMorePosts } from 'utils/api'
+import { getAllPostsWithSlug, getPostAndMorePosts } from '../../utils/api'
 
 export default function Post({ post }) {
   const router = useRouter()
@@ -15,8 +14,6 @@ export default function Post({ post }) {
   return (
     <div>
       <h1>{post.title}</h1>
-      <h2>{post.description}</h2>
-      <BlockContent blocks={post.body} />
     </div>
   )
 }
@@ -25,6 +22,7 @@ export async function getStaticProps({ params }) {
   const data = await getPostAndMorePosts(params.slug)
   return {
     props: {
+      preview,
       post: data?.post || null,
       morePosts: data?.morePosts || null,
     },

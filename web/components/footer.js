@@ -1,8 +1,3 @@
+const Footer = () => <footer>Peter F. Tumulty</footer>
 
-const Footer = () => (
-  <footer>
-    Peter F. Tumulty 
-  </footer>
-)
-
-export default Footer;
+export default Footer

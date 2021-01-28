@@ -18,7 +18,7 @@ const DarkModeToggle = () => {
             button {
               height: 25px;
               width: 75px;
-              margin: 2.5em;
+              margin: margin
             }
 
             button:hover {

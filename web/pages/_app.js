@@ -1,12 +1,12 @@
-import Head from 'next/head';
-import Header from 'components/header';
-import Footer from 'components/footer';
+import Head from 'next/head'
+import Header from 'components/header'
+import Footer from 'components/footer'
 
-import 'styles/global.css';
+import 'styles/global.css'
 function MyApp({ Component, pageProps }) {
   return (
     <>
-    <Head>
+      <Head>
         <meta charSet="utf-8" />
         <meta
           content="width=device-width,initial-scale=1,shrink-to-fit=no"
@@ -32,14 +32,14 @@ function MyApp({ Component, pageProps }) {
         />
       </Head>
       <div id="blog">
-      <Header />
-      <main>        
-        <Component {...pageProps} />
-      </main>
-      <Footer />
+        <Header />
+        <main>
+          <Component {...pageProps} />
+        </main>
+        <Footer />
       </div>
-      </>
-      ) 
+    </>
+  )
 }
 
 export default MyApp

@@ -14,8 +14,7 @@ export default function Post({ post }) {
   console.log(post)
   return (
     <div>
-      <h1>{post.title}</h1>
-      <h2>{post.description}</h2>
+      <h3>{post.title}</h3>
       <BlockContent blocks={post.body} />
     </div>
   )

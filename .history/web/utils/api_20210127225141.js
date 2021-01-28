@@ -62,8 +62,8 @@ export async function getPostAndMorePosts(slug) {
           'image':mainImage.asset._ref,
           'date':publishedAt,
           'slug': slug.current,
-          'body': body,
-        }`,
+          content,
+      }`,
         { slug }
       )
       .then((res) => res?.[0]),

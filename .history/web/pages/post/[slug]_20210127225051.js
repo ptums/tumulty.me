@@ -1,6 +1,5 @@
 import { useRouter } from 'next/router'
-import BlockContent from '@sanity/block-content-to-react'
-import { getAllPostsWithSlug, getPostAndMorePosts } from 'utils/api'
+import { getAllPostsWithSlug, getPostAndMorePosts } from '../../utils/api'
 
 export default function Post({ post }) {
   const router = useRouter()
@@ -15,8 +14,6 @@ export default function Post({ post }) {
   return (
     <div>
       <h1>{post.title}</h1>
-      <h2>{post.description}</h2>
-      <BlockContent blocks={post.body} />
     </div>
   )
 }

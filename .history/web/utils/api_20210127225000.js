@@ -61,20 +61,20 @@ export async function getPostAndMorePosts(slug) {
           'description': description,
           'image':mainImage.asset._ref,
           'date':publishedAt,
-          'slug': slug.current,
-          'body': body,
-        }`,
+          'slug': slug.current
+        content,
+      }`,
         { slug }
       )
       .then((res) => res?.[0]),
     client.fetch(
       `*[_type == "post" && slug.current != $slug] | order(date desc, _updatedAt desc){
         title,
-        'description': description,
-        'image':mainImage.asset._ref,
-        'date':publishedAt,
-        'slug': slug.current,
-        'body': body,
+    'description': description,
+    'image':mainImage.asset._ref,
+    'date':publishedAt,
+    'slug': slug.current
+        content,
       }[0...2]`,
       { slug }
     ),
