@@ -4,3 +4,5 @@ web/.env
 web/.next
 web/.history
 web/.vscode
+.history
+.vscode
