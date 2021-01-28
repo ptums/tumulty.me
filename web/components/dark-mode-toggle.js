@@ -3,15 +3,9 @@ import React, { useState } from 'react'
 const DarkModeToggle = () => {
   const [darkMode, setDarkMode] = useState(false)
 
-  const toggleMode = () => {
-    if (darkMode) {
-    }
-    setDarkMode(!darkMode)
-  }
-
   return (
     <>
-      <button onClick={() => toggleMode()}>
+      <button onClick={() => setDarkMode(!darkMode)}>
         {darkMode ? <>Dark &#x1F315;</> : <> Light &#x2600;</>}
         <style jsx>
           {`
