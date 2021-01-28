@@ -2,5 +2,3 @@ studio/node_modules/*
 web/node_modules/*
 web/.env
 web/.next
-web/.history
-web/.vscode
