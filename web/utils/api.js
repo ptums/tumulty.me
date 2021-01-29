@@ -48,8 +48,6 @@ export async function getAllPostsForHome() {
     'slug': slug.current
     }`);
 
-    console.log(results);
-
   return getUniquePosts(results)
 }
 

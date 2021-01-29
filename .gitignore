@@ -7,3 +7,5 @@ web/.history
 web/.vscode
 .history
 .vscode
+# Local Netlify folder
+.netlify
