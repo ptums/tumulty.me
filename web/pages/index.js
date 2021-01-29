@@ -23,7 +23,7 @@ export default function Index({ allPosts }) {
 
         <style jsx>{`
           section {
-            margin-top: 2.5em;
+            margin-top: 2em;
           }
         `}</style>
       </section>

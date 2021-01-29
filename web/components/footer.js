@@ -1,3 +1,7 @@
-const Footer = () => <footer>Peter F. Tumulty</footer>
+const Footer = () => {
+  const year = new Date().getFullYear();
+  
+  return <footer>Peter F. Tumulty ©️ {year}</footer>
+}
 
 export default Footer

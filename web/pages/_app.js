@@ -36,6 +36,7 @@ function MyApp({ Component, pageProps }) {
         <main>
           <Component {...pageProps} />
         </main>
+        <hr/>
         <Footer />
       </div>
     </>

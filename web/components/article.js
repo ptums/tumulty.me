@@ -1,7 +1,7 @@
-import Image from 'next/image'
 import Link from 'next/link'
+import formatDate from 'utils/format-date'
 
-const Article = ({ title, link, description, date, image }) => {
+const Article = ({ title, link, description, date }) => {
   return (
     <div className="card">
       <Link href={`/post/${link}`}>
@@ -9,7 +9,7 @@ const Article = ({ title, link, description, date, image }) => {
           <p>
             <strong>{title}</strong>
           </p>
-          <p>{date}</p>
+          <p>{formatDate(date)}</p>
           <p>{description}</p>
         </a>
       </Link>
@@ -24,9 +24,19 @@ const Article = ({ title, link, description, date, image }) => {
           transition: 0.2s;
         }
 
+        a {
+          color: #000;
+          text-decoration: none;
+        }
+
+        strong {
+          font-size: 1rem;
+        }
+
         .card:hover {
           cursor: pointer;
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+          border: 2px solid green;
         }
       `}</style>
     </div>

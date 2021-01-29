@@ -1,4 +1,3 @@
-require('dotenv').config()
 import sanityClient from '@sanity/client'
 import sanityImage from '@sanity/image-url'
 
