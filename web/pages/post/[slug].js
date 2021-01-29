@@ -1,4 +1,5 @@
 import { useRouter } from 'next/router'
+import { ArticleJsonLd } from 'next-seo'
 import Head from 'next/head'
 import Image from 'next/image'
 import ErrorPage from 'next/error'
@@ -20,22 +21,41 @@ export default function Post({ post }) {
     return <ErrorPage statusCode={404} />
   }
   
-
+  console.log(post);
+  console.log(router);
 
   return (
     <div>
       <Head>
         <title>{post.title}</title>
+        <meta name="description" content={post.description} />        
       </Head>
+      <ArticleJsonLd
+          url={`https://tumulty.me${router.asPath}`}
+          title={post.title}
+          images={[
+            featuredImage.width(620).height(240).url(),
+            featuredImage.width(300).height(116).url(),
+            featuredImage.width(100).height(39).url(),
+          ]}
+          datePublished={post.date}
+          dateModified={post.date}
+          authorName={['Peter Tumulty']}
+          publisherName="Peter Tumulty"
+          publisherLogo="/me.png"
+          description={post.description}
+        />
+      <div className={styles.container}>
       <h1>{post.title}</h1>
       <h2>{post.description}</h2>
       <Image
-       src={featuredImage.url()}
+       src={featuredImage.width(620).height(240).url()}
        width={620}
        height={240}
        layout="intrinsic"
       />
       <BlockContent blocks={post.body} className={styles.post} />
+      </div>
     </div>
   )
 }

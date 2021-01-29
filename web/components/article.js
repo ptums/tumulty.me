@@ -36,8 +36,9 @@ const Article = ({ title, link, description, date }) => {
         .card:hover {
           cursor: pointer;
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
-          border: 2px solid green;
         }
+
+
       `}</style>
     </div>
   )

@@ -6,7 +6,8 @@ export default function Index({ allPosts }) {
   return (
     <>
       <Head>
-        <title>A blog about the coding and the web</title>
+        <title>A blog on coding and the web by Peter Tumulty</title>
+        <meta name="description" content="Peter Tumulty is a lead web developer who likes to write about coding, seo, web page optimization, and variety of topics on web development"></meta>
       </Head>
       <section>
         {allPosts &&
