@@ -20,9 +20,6 @@ export default function Post({ post }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
-  
-  console.log(post);
-  console.log(router);
 
   return (
     <div>
@@ -40,8 +37,8 @@ export default function Post({ post }) {
           ]}
           datePublished={post.date}
           dateModified={post.date}
-          authorName={['Peter Tumulty']}
-          publisherName="Peter Tumulty"
+          authorName={['Peter F. Tumulty']}
+          publisherName="Peter F. Tumulty"
           publisherLogo="/me.png"
           description={post.description}
         />
@@ -53,6 +50,7 @@ export default function Post({ post }) {
        width={620}
        height={240}
        layout="intrinsic"
+       alt={post.title}
       />
       <BlockContent blocks={post.body} className={styles.post} />
       </div>
