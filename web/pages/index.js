@@ -37,5 +37,6 @@ export async function getStaticProps() {
   const allPosts = await getAllPostsForHome()
   return {
     props: { allPosts },
+    revalidate: 1
   }
 }
