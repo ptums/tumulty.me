@@ -5,6 +5,8 @@ web/.env
 web/.next
 web/.history
 web/.vscode
+web/out_publish
+web/out_functions
 .history
 .vscode
 # Local Netlify folder
