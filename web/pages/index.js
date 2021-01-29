@@ -44,7 +44,7 @@ export default function Index({ allPosts }) {
 export async function getStaticProps() {
   const allPosts = await getAllPostsForHome()
   return {
-    props: { allPosts },
+    props: { allPosts: allPosts.sort((a,b) => new Date(b.date) - new Date(a.date)) },
     revalidate: 1
   }
 }

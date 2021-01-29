@@ -39,7 +39,7 @@ export async function getAllPostsWithSlug() {
 }
 
 export async function getAllPostsForHome() {
-  const results = await client.fetch(`*[_type == "post"]{
+  const results = await client.fetch(`*[_type == "post"] | order(date asc){
      title,
     'description': description,
     'categories': categories[]->title,
