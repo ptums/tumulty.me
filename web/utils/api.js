@@ -42,10 +42,13 @@ export async function getAllPostsForHome() {
   const results = await client.fetch(`*[_type == "post"]{
      title,
     'description': description,
+    'categories': categories[]->title,
     'image':mainImage.asset._ref,
     'date':publishedAt,
     'slug': slug.current
-    }`)
+    }`);
+
+    console.log(results);
 
   return getUniquePosts(results)
 }

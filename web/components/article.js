@@ -1,16 +1,19 @@
 import Link from 'next/link'
 import formatDate from 'utils/format-date'
 
-const Article = ({ title, link, description, date }) => {
+const Article = ({ title, link, description, date, categories }) => {
   return (
     <div className="card">
       <Link href={`/post/${link}`}>
         <a>
           <p>
-            <strong>{title}</strong>
+            <strong className="title">{title}</strong>
           </p>
           <p>{formatDate(date)}</p>
           <p>{description}</p>
+          <p className="topic">
+            {categories.map((category) => <span key={category}>{category}</span>)}
+          </p>
         </a>
       </Link>
       <style jsx>{`
@@ -22,6 +25,14 @@ const Article = ({ title, link, description, date }) => {
           border: 0.4px solid #e9e9e9;
           transition-timing-function: ease-out;
           transition: 0.2s;
+        }
+        .title {
+          font-size:1.3rem;
+        }
+        .topic {
+          margin-bottom: 0;
+          padding-bottom: 0;
+          font-weight: bold;
         }
 
         a {

@@ -19,6 +19,7 @@ export default function Index({ allPosts }) {
               description={post.description}
               date={post.date}
               image={post.image}
+              categories={post.categories}
             />
           ))}
 
