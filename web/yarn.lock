@@ -4119,6 +4119,13 @@ next-on-netlify@^2.8.6:
     fs-extra "^9.0.1"
     jimp "^0.16.1"
 
+next-sanity-image@^1.0.1:
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/next-sanity-image/-/next-sanity-image-1.0.1.tgz#401cd42d7de36eaddfe5bd03391da4b9aef79611"
+  integrity sha512-lGaatEBBtR3eSWeGODByboEPKq4zWvo49XgZ3MZg5nlOYj8PH0Y486HONAnEM454l+HUGEN85J3XZUs3wYs9lQ==
+  dependencies:
+    "@sanity/image-url" "^0.140.19"
+
 next-seo@^4.18.0:
   version "4.18.0"
   resolved "https://registry.yarnpkg.com/next-seo/-/next-seo-4.18.0.tgz#c6cf30253088d64c2e552e10d89a831b59f661c4"

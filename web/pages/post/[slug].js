@@ -4,13 +4,16 @@ import Head from 'next/head'
 import Image from 'next/image'
 import ErrorPage from 'next/error'
 import BlockContent from '@sanity/block-content-to-react'
-import imageUrlBuilder from '@sanity/image-url'
+import { useNextSanityImage } from 'next-sanity-image';
 import { getAllPostsWithSlug, getPostAndMorePosts } from 'utils/api'
 import client from 'utils/sanity'
 import styles from 'styles/Post.module.css'
 
 function urlFor (source) {
-  return imageUrlBuilder(client).image(source)
+  return useNextSanityImage(
+		client,
+		source
+	);
 }
 
 export default function Post({ post }) {
@@ -20,7 +23,7 @@ export default function Post({ post }) {
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
   }
-
+  
   return (
     <div>
       <Head>
@@ -31,9 +34,7 @@ export default function Post({ post }) {
           url={`https://tumulty.me${router.asPath}`}
           title={post.title}
           images={[
-            featuredImage.width(620).height(240).url(),
-            featuredImage.width(300).height(116).url(),
-            featuredImage.width(100).height(39).url(),
+            featuredImage.src
           ]}
           datePublished={post.date}
           dateModified={post.date}
@@ -46,9 +47,7 @@ export default function Post({ post }) {
       <h1>{post.title}</h1>
       <h2>{post.description}</h2>
       <Image
-       src={featuredImage.width(620).height(240).url()}
-       width={620}
-       height={240}
+       {...featuredImage} sizes="(max-width: 620px) 100vw, 620px"
        layout="intrinsic"
        alt={post.title}
       />
