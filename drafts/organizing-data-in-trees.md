@@ -55,5 +55,36 @@ To build a tree, you would use a class-based programming language like Python or
 
 #### A Quad Tree
 
+A quadtree is a structured data tree where each leaf node (a node with no children) has a value, and non-leaf nodes have precisely four children. The nodes in a quadtree structure tree can either have a number value ranging from 0 to 255 or a node without a value and four children (lu, ll, ru, and rl).
+
+A quadtree is one of the following:
+1. A root node with a value (0 to 255)
+2. a root node with a value and four children (lu, ll, ru, and rl)
+
+To build a program that follows the rules above, we first need to write code that meets the following expectations
+* A function that returns true if a quadtree is a single node
+* A function that returns a single node quadtree with label value 
+* A function that creates a quadtree from four other quadtrees
+
+Then we need to define functions that return the following nodes from a tree
+* A function that returns the upper left quadtree
+* A function that returns the upper right quadtree
+* A function that returns the lower-left quadtree
+* A function that returns the lower righter quadtree
+
+At this point, if you are thinking, "I'm lost, and this is confusing." Please bear with me. I want to define the specific pieces of a quadtree before take a look at the big picture. 
+
+Like my Dad would say "Onward and upward McGuff"
+
+Here are a few more facts about building a program that creates a quadtree data structure
+
+* The function that returns the value of a node can never be false
+* When that same function returns true, we can also set a operator value that returns the node's actual value instead of only its boolean.
+
+I broke down the structure of a program to create a quadtree in pseudo-code. 
+
+Now, what real-world uses do we have for a quadtree data structure?
+1. The most common use is to save a gray-value graphic (0 representing black and 255 representing white).
+2. Another use for a quadtree data structure is to create a program that will rotate an image 180 degrees.
 
 
