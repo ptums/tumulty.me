@@ -16,9 +16,7 @@ Edges: are the lines that stress the direction of where the tree is growing
 
 Together, the nodes and their attached edges create a tree.
 
-### The technical
-
-#### There are two types of trees
+### Two types of trees
 
 1. An empty tree
 2. A node with a list of successor trees
@@ -27,7 +25,7 @@ An empty tree is no fun, so we'll be focusing on a node with a list of successor
 
 These values can be any sort of data: numbers, strings, objects etc. 
 
-#### Parts of a tree
+### Parts of a tree
 
 **Root:** top level node
  
@@ -43,19 +41,19 @@ If two nodes share the same level and their branches connect to the same parent 
 
 You can see that a tree follows the same structure as a nuclear family. You have parents, children and those children are siblings.
 
+### Tree's structure
 
-<!-- Continue on pg. 32 just by the Quad-trees section -->
-If a node is the child of a child of . . . of a another node then we say that the rst node is a
-descendent of the second node. Conversely, the second node is an ancestor of the rst node.
-Nodes which do not have any children are known as leaves (e.g., the nodes labelled with 1, 7,
-10, 12, and 15 in Figure 6.1).
-A path is a sequence of connected edges from one node to another. Trees have the property
-that for every node there is a unique path connecting it with the root. In fact, that is another
-possible denition of a tree. The depth or level of a node is given by the length of this path.
-Hence the root has level 0, its children have level 1, and so on. The maximal length of a
-path in a tree is also called the height of the tree. A path of maximal length always goes
-from the root to a leaf. The size of a tree is given by the number of nodes it contains. We
-shall normally assume that every tree is nite, though generally that need not be the case.
-The tree in Figure 6.1 has height 3 and size 11. A tree consisting of just of one node has
-height 0 and size 1. The empty tree obviously
+Nodes that connect in descending order are considered descendants of one another. And if a node descends from another node but doesn't have any children. Then that node is known as a leaf. 
+
+Connected nodes create a path, and we determine how deep the tree goes by the length of this path. For example, the root of a tree is level 0, and its direct path is its children. The children of the root fall on level one, and their children fall on level two, and so on and so forth.
+
+If the tree is just a single node, the root node, then you would say the tree has a height of 0 and the size of 1.  Funny enough, if a tree doesn't contain any nodes, then it has the size 0 and the height -1. 
+
+To build a tree, you would use a class-based programming language like Python or C++ to create a class constructor function that will utilize primitive operations, selectors, and conditional statements to generate a dynamic tree of nodes. 
+
+### Tree Examples
+
+#### A Quad Tree
+
+
 
