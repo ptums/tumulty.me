@@ -87,4 +87,19 @@ Now, what real-world uses do we have for a quadtree data structure?
 1. The most common use is to save a gray-value graphic (0 representing black and 255 representing white).
 2. Another use for a quadtree data structure is to create a program that will rotate an image 180 degrees.
 
+### Introduction to Binary Trees
+The most common tree used in computer science is the binary tree. And what defines a binary tree is that every node has at the most two children. 
+
+There are two rules for every binary tree
+A binary tree is either empty or 
+It consists of a node and two binary trees, the left subtree and the right subtree. 
+
+Rule 1 is the base case, which means that there isn't a list of steps to resolve, and Rule 2 is the induction step.  
+
+Let's pause for a second and get something straight. In discrete mathematics, the base case and [induction step's definition is](https://everythingcomputerscience.com/discrete_mathematics/Proof_by_Induction.html#:~:text=Overview%3A,for%20the%20next%20natural%20number).  "The first step, known as the base case, is to prove the given statement for the first natural number. The second step, known as the inductive step, is to prove that the given statement for anyone natural number implies the given statement for the next natural number."
+
+Let's pseudo-code a binary tree, and to get started, you apply rule one (you have to start somewhere). Remember rule one creates an empty tree, but a tree nonetheless. We are dedicating space in our computer memory for a data structure but haven't added any data yet. The process is the same as digging a hole in the ground but haven't planted any seeds yet. Once rule one is complete, you are now allowed to start created a tree. To construct the tree, you need to apply rule two. You set the root node with a value but no children. Using the new root node value, you can create two more nodes. From those two nodes, they can sprout and branch to either one two nodes, and this process can go on until the control is resolved or if the computer runs out of memory.
+
+
+
 
