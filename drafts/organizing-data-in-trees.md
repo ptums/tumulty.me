@@ -100,6 +100,7 @@ Let's pause for a second and get something straight. In discrete mathematics, th
 
 Let's pseudo-code a binary tree, and to get started, you apply rule one (you have to start somewhere). Remember rule one creates an empty tree, but a tree nonetheless. We are dedicating space in our computer memory for a data structure but haven't added any data yet. The process is the same as digging a hole in the ground but haven't planted any seeds yet. Once rule one is complete, you are now allowed to start created a tree. To construct the tree, you need to apply rule two. You set the root node with a value but no children. Using the new root node value, you can create two more nodes. From those two nodes, they can sprout and branch to either one two nodes, and this process can go on until the control is resolved or if the computer runs out of memory.
 
+<!-- Left off on 6.5 The height of a binary tree-->
 
 
 
