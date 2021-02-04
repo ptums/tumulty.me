@@ -6,7 +6,7 @@ import Article from 'components/article'
 export default function Index({ allPosts }) {
   const router = useRouter();
 
-  if (!router.isFallback && allPosts.lenght < 0) {
+  if (!router.isFallback && allPosts.lenght <= 0) {
     return <ErrorPage statusCode={404} />
   }
   return (
