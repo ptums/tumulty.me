@@ -35,7 +35,7 @@ const Header = () => {
       </div>
       <hr />
       <div className="me">
-        <Image src="/v1611944474/blog/me_biltxx.png" width={100} height={118} alt="Peter F. Tumulty" />
+        <Image src="/me.png" width={100} height={118} alt="Peter F. Tumulty" />
         <div className="details">
           <h3>
             <strong>That's me</strong> Peter F. Tumulty
