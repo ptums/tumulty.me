@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import formatDate from 'utils/format-date'
+import limitBrief from 'utils/limit-brief'
 
 const Article = ({ title, link, description, date, categories }) => {
   return (
@@ -10,7 +11,7 @@ const Article = ({ title, link, description, date, categories }) => {
             <strong className="title">{title}</strong>
           </p>
           <p>{formatDate(date)}</p>
-          <p>{description}</p>
+          <p>{limitBrief(description)}</p>
           <p className="topic">
             {categories.map((category) => <span key={category}>{category}</span>)}
           </p>

@@ -1,24 +1,18 @@
 import { useRouter } from 'next/router'
 import { ArticleJsonLd } from 'next-seo'
 import Head from 'next/head'
-import Image from 'next/image'
 import ErrorPage from 'next/error'
-import BlockContent from '@sanity/block-content-to-react'
-import { useNextSanityImage } from 'next-sanity-image';
-import { getAllPostsWithSlug, getPostAndMorePosts } from 'utils/api'
-import client from 'utils/sanity'
+import client from 'utils/api'
+import limitBrief from 'utils/limit-brief'
 import styles from 'styles/Post.module.css'
 
-function urlFor (source) {
-  return useNextSanityImage(
-		client,
-		source
-	);
+function createMarkup(content) {
+  return {__html: content};
 }
+
 
 export default function Post({ post }) {
   const router = useRouter();
-  const featuredImage = urlFor(post.image);
 
   if (!router.isFallback && !post?.slug) {
     return <ErrorPage statusCode={404} />
@@ -34,43 +28,57 @@ export default function Post({ post }) {
           url={`https://tumulty.me${router.asPath}`}
           title={post.title}
           images={[
-            featuredImage.src
+            post.coverImage
           ]}
           datePublished={post.date}
           dateModified={post.date}
           authorName={['Peter F. Tumulty']}
           publisherName="Peter F. Tumulty"
           publisherLogo="/me.png"
-          description={post.description}
+          description={limitBrief(post.brief)}
         />
       <div className={styles.container}>
-      <h1>{post.title}</h1>
-      <h2>{post.description}</h2>
-      <Image
-       {...featuredImage} sizes="(max-width: 620px) 100vw, 620px"
-       layout="intrinsic"
-       alt={post.title}
-      />
-      <BlockContent blocks={post.body} className={styles.post} />
+        <h1>{post.title}</h1>
+        <div dangerouslySetInnerHTML={createMarkup(post.content)} />
       </div>
     </div>
   )
 }
 
 export async function getStaticProps({ params }) {
-  const data = await getPostAndMorePosts(params.slug)
+  const post = await client.query(`{
+    post(slug:"${params.slug}", hostname:"${process.env.NEXT_PUBLIC_HASHNODE_USER}") {
+       title
+       cuid
+       content
+       slug
+       coverImage
+       brief
+       dateAdded
+     }
+   }`, {});
   return {
     props: {
-      post: data || null
+      post: post.data.post
     },
+    revalidate: 1
   }
 }
 
 export async function getStaticPaths() {
-  const allPosts = await getAllPostsWithSlug();
+  const allPosts =  await client.query(`
+  query {
+    user(username:"ptums"){
+     publication{
+       posts{
+        slug
+       }
+     }
+   }
+   }`, {});
 
   return {
-    paths: allPosts.map((post) => `/post/${post.slug}`) || [],
+    paths: allPosts.data.user.publication.posts.map((post) => `/post/${post.slug}`) || [],
     fallback: false,
   }
 }

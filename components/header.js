@@ -18,14 +18,14 @@ const Header = () => {
                   <h4>
                     <strong>Personal Blog</strong>
                   </h4>
-                  <h5>On coding and "how the web works"</h5>
+                  <h5>On coding, how the internet works, and interpreting documentation</h5>
                 </>
               ) : (
                 <>
                   <h1>
                     <strong>Personal Blog</strong>
                   </h1>
-                  <h2>On coding and "how the web works"</h2>
+                  <h2>On coding, how the internet works, and interpreting documentation</h2>
                 </>
               )}
             </a>

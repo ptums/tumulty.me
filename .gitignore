@@ -1,13 +1,10 @@
-studio/node_modules/*
-sudio/dist
-web/node_modules/*
-web/.env
-web/.next
-web/.history
-web/.vscode
-web/out_publish
-web/out_functions
+node_modules/*
+.next
 .history
 .vscode
-# Local Netlify folder
+out_publish
+out_functions
+.history
+.vscode
 .netlify
+.env

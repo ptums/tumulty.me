@@ -1,8 +1,14 @@
 import Head from 'next/head'
-import { getAllPostsForHome } from 'utils/api'
+import { useRouter } from 'next/router'
+import client from 'utils/api'
 import Article from 'components/article'
 
 export default function Index({ allPosts }) {
+  const router = useRouter();
+
+  if (!router.isFallback && allPosts.lenght < 0) {
+    return <ErrorPage statusCode={404} />
+  }
   return (
     <>
       <Head>
@@ -13,13 +19,12 @@ export default function Index({ allPosts }) {
         {allPosts &&
           allPosts.map((post) => (
             <Article
-              key={post.title}
+              key={post.cuid}
               title={post.title}
               link={post.slug}
-              description={post.description}
-              date={post.date}
-              image={post.image}
-              categories={post.categories}
+              description={post.brief}
+              date={post.dateAdded}
+              categories={[]}
             />
           ))}
 
@@ -34,8 +39,22 @@ export default function Index({ allPosts }) {
 }
 
 export async function getStaticProps() {
-  const allPosts = await getAllPostsForHome()
+  const allPosts =  await client.query(`
+  query {
+    user(username:"${process.env.NEXT_PUBLIC_HASHNODE_USER}"){
+     publication{
+       posts{
+        title
+        brief
+        slug
+        cuid
+        dateAdded
+       }
+     }
+   }
+   }`, {});
   return {
-    props: { allPosts: allPosts.sort((a,b) => new Date(b.date) - new Date(a.date)) }
+    props: { allPosts: allPosts.data.user.publication.posts },
+    revalidate: 1,
   }
 }
