@@ -21,14 +21,14 @@ const Article = ({ title, link, description, date, categories }) => {
         .card {
           border-radius: 0.25rem;
           box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
-          margin-bottom: 1em;
+          margin-bottom: 2em;
           padding: 1em;
           border: 0.4px solid #e9e9e9;
           transition-timing-function: ease-out;
           transition: 0.2s;
         }
         .title {
-          font-size:1.3rem;
+          font-size:2rem;
         }
         .topic {
           margin-bottom: 0;
@@ -42,12 +42,16 @@ const Article = ({ title, link, description, date, categories }) => {
         }
 
         strong {
-          font-size: 1rem;
+          font-size: 1.4rem;
         }
 
         .card:hover {
           cursor: pointer;
           box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
+        }
+        p {
+          font-size: 1.3rem;
+          line-height: 1.2
         }
 
 

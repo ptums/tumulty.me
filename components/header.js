@@ -58,7 +58,7 @@ const Header = () => {
       <style jsx>{`
         h1,
         h4 {
-          font-size: 2rem;
+          font-size: 3rem;
           margin-bottom: 0;
         }
 
@@ -71,7 +71,7 @@ const Header = () => {
           font-weight: normal;
           color: #444;
           margin-top: 2px;
-          font-size: 1rem;
+          font-size: 1.3rem;
         }
 
         h5 {
@@ -80,7 +80,7 @@ const Header = () => {
 
         h3 {
           font-weight: normal;
-          font-size: 1rem;
+          font-size: 1.4rem;
           margin-top: 10px;
         }
 
@@ -105,6 +105,7 @@ const Header = () => {
 
         .details {
           margin-left: 1em;
+          font-size:1.3rem;
         }
 
         .details > h3 {

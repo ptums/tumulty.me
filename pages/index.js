@@ -1,5 +1,6 @@
 import Head from 'next/head'
 import { useRouter } from 'next/router'
+import Link from 'next/link'
 import client from 'utils/api'
 import Article from 'components/article'
 
@@ -38,23 +39,42 @@ export default function Index({ allPosts }) {
   )
 }
 
-export async function getStaticProps() {
-  const allPosts =  await client.query(`
-  query {
-    user(username:"${process.env.NEXT_PUBLIC_HASHNODE_USER}"){
-     publication{
-       posts{
-        title
-        brief
-        slug
-        cuid
-        dateAdded
-       }
-     }
-   }
-   }`, {});
+export async function getStaticProps() {  
+  const oldestPosts =  await client.query(`
+    query {
+      user(username:"${process.env.NEXT_PUBLIC_HASHNODE_USER}"){
+      publication{
+        posts(page:0){
+          title
+          brief
+          slug
+          cuid
+          dateAdded
+        }
+      }
+    }
+    }`, {});
+
+    const latestPosts =  await client.query(`
+    query {
+      user(username:"${process.env.NEXT_PUBLIC_HASHNODE_USER}"){
+      publication{
+        posts(page:1){
+          title
+          brief
+          slug
+          cuid
+          dateAdded
+        }
+      }
+    }
+    }`, {});
+
+
   return {
-    props: { allPosts: allPosts.data.user.publication.posts },
+    props: {
+      allPosts: [].concat(oldestPosts.data.user.publication.posts, latestPosts.data.user.publication.posts)
+    },
     revalidate: 1,
   }
 }

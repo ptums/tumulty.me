@@ -66,19 +66,31 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const allPosts =  await client.query(`
-  query {
-    user(username:"ptums"){
-     publication{
-       posts{
-        slug
-       }
-     }
-   }
-   }`, {});
+  const latestPosts =  await client.query(`
+    query {
+      user(username:"ptums"){
+      publication{
+        posts(page:0){
+          slug
+        }
+      }
+    }
+    }`, {});
 
+    const olderPosts =  await client.query(`
+      query {
+        user(username:"ptums"){
+        publication{
+          posts(page:1){
+            slug
+          }
+        }
+      }
+      }`, {});
+
+  const allPosts = [].concat(latestPosts.data.user.publication.posts, olderPosts.data.user.publication.posts)
   return {
-    paths: allPosts.data.user.publication.posts.map((post) => `/post/${post.slug}`) || [],
+    paths: allPosts.map((post) => `/post/${post.slug}`) || [],
     fallback: false,
   }
 }
