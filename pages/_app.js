@@ -1,8 +1,8 @@
 import Head from 'next/head'
 import Header from 'components/header'
 import Footer from 'components/footer'
+import '../styles/global.css'
 
-import 'styles/global.css'
 function MyApp({ Component, pageProps }) {
   return (
     <>
@@ -36,6 +36,7 @@ function MyApp({ Component, pageProps }) {
         <main>
           <Component {...pageProps} />
         </main>
+        <hr />
         <Footer />
       </div>
     </>
