@@ -100,7 +100,17 @@ Let's pause for a second and get something straight. In discrete mathematics, th
 
 Let's pseudo-code a binary tree, and to get started, you apply rule one (you have to start somewhere). Remember rule one creates an empty tree, but a tree nonetheless. We are dedicating space in our computer memory for a data structure but haven't added any data yet. The process is the same as digging a hole in the ground but haven't planted any seeds yet. Once rule one is complete, you are now allowed to start created a tree. To construct the tree, you need to apply rule two. You set the root node with a value but no children. Using the new root node value, you can create two more nodes. From those two nodes, they can sprout and branch to either one two nodes, and this process can go on until the control is resolved or if the computer runs out of memory.
 
-<!-- Left off on 6.5 The height of a binary tree-->
+### The height of a binary tree
+
+The relationship between size (n) and height (h) for binary trees isn't simple.
+
+To calculate the max-height of a given binary tree is (n-1), which happens when all non-leaf nodes have only a single child.  Visually this will look like a chain. 
+
+Adversely, to calculate the min-height of a binary tree, we need to start at the root. We work through each level of the tree without adding any new levels. When the left and right subtrees' height doesn't differ, we call it a height-balanced tree.
+
+<!-- Insert a good way to calculate the height of a binary tree  pg. 36 -->
+
+### Binary tree's size
 
 
 
