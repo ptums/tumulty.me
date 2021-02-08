@@ -10,8 +10,9 @@ const DarkModeToggle = () => {
         <style jsx>
           {`
             button {
-              height: 25px;
-              width: 75px;
+              border-radius: 8px;
+              width: 120px;
+              height: 36px;
               margin: 2.5em;
             }
 

@@ -1,6 +1,7 @@
 import Head from 'next/head'
 import Header from 'components/header'
 import Footer from 'components/footer'
+import '../styles/normalize.min.css'
 import '../styles/global.css'
 
 function MyApp({ Component, pageProps }) {

@@ -10,7 +10,6 @@ function createMarkup(content) {
   return {__html: content};
 }
 
-
 export default function Post({ post }) {
   const router = useRouter();
 
@@ -45,7 +44,7 @@ export default function Post({ post }) {
   )
 }
 
-export async function getStaticProps({ params }) {
+export async function getServerSideProps({ params }) {
   const post = await client.query(`{
     post(slug:"${params.slug}", hostname:"${process.env.NEXT_PUBLIC_HASHNODE_USER}") {
        title
@@ -60,37 +59,6 @@ export async function getStaticProps({ params }) {
   return {
     props: {
       post: post.data.post
-    },
-    revalidate: 1
-  }
-}
-
-export async function getStaticPaths() {
-  const latestPosts =  await client.query(`
-    query {
-      user(username:"ptums"){
-      publication{
-        posts(page:0){
-          slug
-        }
-      }
     }
-    }`, {});
-
-    const olderPosts =  await client.query(`
-      query {
-        user(username:"ptums"){
-        publication{
-          posts(page:1){
-            slug
-          }
-        }
-      }
-      }`, {});
-
-  const allPosts = [].concat(latestPosts.data.user.publication.posts, olderPosts.data.user.publication.posts)
-  return {
-    paths: allPosts.map((post) => `/post/${post.slug}`) || [],
-    fallback: false,
   }
 }
