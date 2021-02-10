@@ -48,6 +48,10 @@ em {
   font-family: 'Montserrat Italic';
 }
 
+img {
+  max-width: 100%;
+}
+
 *:focus {
   outline: 0 !important;
 }
