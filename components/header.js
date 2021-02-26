@@ -1,6 +1,6 @@
 import Image from 'next/image'
-import { useRouter } from 'next/router'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import DarkModeToggle from 'components/dark-mode-toggle'
 
 const Header = () => {
@@ -49,7 +49,14 @@ const Header = () => {
               <a href="https://twitter.com/ptums923">Twitter</a>
             </li>
             <li>
-              <a href="https://tumultywebservices.dev">Dev Shop</a>
+              <a href="https://tumulty.me">Dev Shop</a>
+            </li>
+            <li>
+              <Link href="/my-work">
+                <a>
+                  My Work
+                </a>
+              </Link>
             </li>
           </ul>
         </div>
