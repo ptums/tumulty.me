@@ -50,14 +50,7 @@ const Header = () => {
             </li>
             <li>
               <a href="https://tumulty.me">Dev Shop</a>
-            </li>
-            <li>
-              <Link href="/my-work">
-                <a>
-                  My Work
-                </a>
-              </Link>
-            </li>
+            </li>            
           </ul>
         </div>
       </div>
